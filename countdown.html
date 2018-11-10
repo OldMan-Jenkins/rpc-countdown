@@ -89,7 +89,7 @@
 				document.getElementById('timer-days').innerHTML = Math.floor(daysLeft);
 				document.getElementById('timer-hours').innerHTML = Math.floor(hoursLeft % 24);
 				document.getElementById('timer-minutes').innerHTML = Math.floor(minutesLeft % 60);
-				document.getElementById('timer-seconds').innerHTML = Math.round(secondsLeft % 60);
+				document.getElementById('timer-seconds').innerHTML = Math.floor(secondsLeft % 60);
 			} else {
 				document.getElementById('label').innerHTML = 'This article is now eligible for deletion.'
 				document.getElementById('timer-days').innerHTML = '--'
