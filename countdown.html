@@ -75,15 +75,24 @@
 			x = new Date();
 			timeLeft = targetDateTime.getTime() - x.getTime();
 
-			secondsLeft = timeLeft / 1000;
-			minutesLeft = secondsLeft / 60;
-			hoursLeft = minutesLeft / 60;
-			daysLeft = hoursLeft / 24;
+			if (timeLeft > 0) {
+				secondsLeft = timeLeft / 1000;
+				minutesLeft = secondsLeft / 60;
+				hoursLeft = minutesLeft / 60;
+				daysLeft = hoursLeft / 24;
 
-			document.getElementById('timer-days').innerHTML = Math.floor(daysLeft);
-			document.getElementById('timer-hours').innerHTML = Math.floor(hoursLeft % 24);
-			document.getElementById('timer-minutes').innerHTML = Math.floor(minutesLeft % 60);
-			document.getElementById('timer-seconds').innerHTML = Math.round(secondsLeft % 60);
+				document.getElementById('timer-days').innerHTML = Math.floor(daysLeft);
+				document.getElementById('timer-hours').innerHTML = Math.floor(hoursLeft % 24);
+				document.getElementById('timer-minutes').innerHTML = Math.floor(minutesLeft % 60);
+				document.getElementById('timer-seconds').innerHTML = Math.round(secondsLeft % 60);
+			} else {
+				document.getElementById('label').innerHTML = 'This article is now eligible for deletion.'
+				document.getElementById('timer-days').innerHTML = '--'
+				document.getElementById('timer-hours').innerHTML = '--'
+				document.getElementById('timer-minutes').innerHTML = '--'
+				document.getElementById('timer-seconds').innerHTML = '--'
+				clearInterval(updateInterval);
+			}
 		}
 
 		updateInterval = setInterval(updateTimer, 1000);
@@ -93,7 +102,7 @@
 <body>
 	<div id="container">
 		<img src="header.png" width=200px align=center alt="RPC Authority" style="margin-bottom: 10px"><br>
-		<span class="label">This article has reached the deletion threshold and will be deleted in:</span>
+		<span id="label">This article has reached the deletion threshold and will be deleted in:</span>
 		<div id="timer">
 			<div id="timer-days"></div><div id="timer-hours"></div><div id="timer-minutes"></div><div id="timer-seconds"></div>
 			<div class="timer-label" style="grid-column: 1 / 2">Days</div>
