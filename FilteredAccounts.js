@@ -1,0 +1,1 @@
+var filter_list = ['(account deleted)', 'The Fozz', 'The Ice Knight', 'Battle Toad Champion', 'Clyde Frog', 'Dan_Gee_SU', 'InsectMeNot', 'ShaneUAV', 'ciol', 'Dr Osborne', 'Doctor_TMPH', 'PhamtomGuy', 'Og Og Survive', 'Near76', 'Alawkp', 'Eric7894', 'Scino', 'BRAPPlover6969', 'Me Bane hahaha', 'Xilirus']

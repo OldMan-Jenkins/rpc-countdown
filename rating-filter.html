@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<script src="FilteredAccounts.js" type="text/javascript"></script>
+	<script src="jquery-3.3.1.js" type="text/javascript"></script>
+	<script>
+		const token = '1d719a2a3875981893dcc89e4f590115';
+		const cookie = 'WIKIDOT_SESSION_ID_851726ae=_domain_cookie_3625466_c8c196a8d8a4f087eb09436617e7cdbf';
+
+		function getUrlVars() {
+			var vars = {};
+			var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
+				vars[key] = value;
+			});
+			return vars;
+		};
+
+		class Scraper {
+			apiUrl: 'http://www.rpc-wiki.net/ajax-module-connector.php',
+			userList: [],
+			ratingList: [],
+			getInfo: function() {
+				var targetUrl = getUrlVars()['page'];
+				var pageId;
+				$.getJSON('http://www.whateverorigin.org/get?url=' + encodeURIComponent('http://www.rpc-wiki.net/' + targetUrl) + '&callback=?', function(data){console.log(pageId = data.contents.match(/(?<=WIKIREQUEST.info.pageId = ).*?(?=;)/g))});
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="rating-display"></div>
+</body>
+
+</html>
