@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		body {
+			background: linear-gradient(to bottom, #292b30, #1d1e21);
+			height: 900px;
+		}
+
+		.tag_box_container {
+			width: 90%;
+			height: 50px;
+			margin: 0 auto;
+		}
+
+		.tag_box {
+			width: 100%;
+			height: 100%;
+			background: #222;
+			border: 1px solid #333;
+			border-radius: 2px;
+			padding: 0 1%;
+			font-size: 30px;
+			color: #c0c0c0;
+		}
+
+
+	</style>
+	<script type="text/javascript" src="https://jsapi.wikidot.com/local--code/js/4"></script>
+	<script>
+		var tagDict = {};
+		for (page in jsAPI("pages.select", {"site": "rpcauthority"}, "riP8DNYe7eEXemz1filkp0otQW8dUNP7")) {
+			for (tag in jsAPI("pages.get_one", {"site": "rpcauthority", "page": page}, "riP8DNYe7eEXemz1filkp0otQW8dUNP7")["tags"]) {
+				if (!tag in tagDict) {
+					tagDict[tag] = 1;
+				} else {
+					tagDict[tag] += 1;
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="tag_search_wrapper">
+		<div class="tag_box_container">
+			<input class="tag_box" type="text" readonly=true value="test test test"></input>
+		</div>
+		<div class="tag_search">
+	</div>
+</body>
+</html>
