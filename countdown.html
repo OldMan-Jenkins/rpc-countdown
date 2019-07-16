@@ -69,20 +69,13 @@
 
 		// Defining the target date
 
-		months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-		rawDateTime = getUrlVars();
-		mdyArray = rawDateTime["date"].split('-');
-
-		targetDateTime = new Date(months[mdyArray[0] - 1] + ' ' + mdyArray[1] + ' ' + mdyArray[2] + ' ' + rawDateTime["time"] + ' GMT-0000');
-
-		console.log(targetDateTime.getTime());
+		rawTime = getUrlVars()["time"];
 
 		// Setting up a loop to update the timer every second
 
 		function updateTimer() {
 			x = new Date();
-			timeLeft = targetDateTime.getTime() - x.getTime();
+			timeLeft = rawTime - x.getTime();
 
 			if (timeLeft > 0) {
 				secondsLeft = timeLeft / 1000;
